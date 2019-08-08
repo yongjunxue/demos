@@ -1,0 +1,80 @@
+spring:
+    datasource:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driverClassName: com.mysql.jdbc.Driver
+        druid:
+            first:  #数据源1
+                url: jdbc:mysql://192.168.8.89:3306/360_platform?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+                username: root
+                password: mvwchina
+            second:  #数据源2
+                url: jdbc:mysql://192.168.8.89:3306/em_uums_test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+                username: root
+                password: mvwchina
+            third:  #数据源3
+                url: jdbc:mysql://rm-2ze9qof5ae28lu55ao.mysql.rds.aliyuncs.com:3306/db-360de-uas-new?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=false
+                username: xueyongjun
+                password: Xueyongjun2019
+
+            # 初始化连接大小
+            initial-size: 5
+            # 最小空闲连接数
+            min-idle: 5
+            max-active: 20
+            max-wait: 30000
+            # 可关闭的空闲连接间隔时间
+            time-between-eviction-runs-millis: 60000
+            # 配置连接在池中的最小生存时间
+            min-evictable-idle-time-millis: 300000
+            validation-query: select '1' from dual
+            test-while-idle: true
+            test-on-borrow: false
+            test-on-return: false
+            # 打开PSCache，并且指定每个连接上PSCache的大小
+            pool-prepared-statements: true
+            max-open-prepared-statements: 20
+            max-pool-prepared-statement-per-connection-size: 20
+            # 配置监控统计拦截的filters
+            filters: stat
+
+            stat-view-servlet:
+                url-pattern: /druid/*
+                reset-enable: false
+                login-username: admin
+                login-password: 123456
+
+            web-stat-filter:
+                url-pattern: /*
+                exclusions: "*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*"
+
+    redis:
+        database: 6
+        host: 192.168.8.89
+        port: 6379
+        password: 123456
+        timeout: 6000ms  # 连接超时时长（毫秒）
+        jedis:
+            pool:
+                max-active: 1000  # 连接池最大连接数（使用负值表示没有限制）
+                max-wait: -1ms      # 连接池最大阻塞等待时间（使用负值表示没有限制）
+                max-idle: 10      # 连接池中的最大空闲连接
+                min-idle: 5       # 连接池中的最小空闲连接
+  
+  
+    
+sys:
+   casDB: em_uums_test
+   casUrl: http://192.168.8.209:8402
+   productCode: 21000
+   evalUrl: http://192.168.8.109:8040
+   
+oss:
+  endpoint: https://oss-cn-beijing.aliyuncs.com/
+  bucketName: mvw-testing
+  accessKeyId: LTAIB1bc47xlhiyV
+  accessKeySecret: 4vIIy7DB2OKw7IGhme5qQI5CKutDUK
+  path: 360/upload/
+  urlPre: https://mvw-testing.oss-cn-beijing.aliyuncs.com/
+
+file:
+   localPath: F://360/upload/

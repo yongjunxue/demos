@@ -1,7 +1,13 @@
 package com.jfreechart.demo;
 
+import java.io.FileOutputStream;
 import java.util.LinkedList;
 import java.util.Random;
+
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.BaseFont;
 
 public class Test {
 	
@@ -62,6 +68,7 @@ public class Test {
 	}
 	
 	public static void main(String[] args) {
-		new Test().setCost();
+//		new Test().setCost();
+		
 	}
 }

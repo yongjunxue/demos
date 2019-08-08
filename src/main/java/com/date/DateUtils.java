@@ -59,7 +59,7 @@ public class DateUtils {
 	 * @param pattern 日期的格式，如：DateUtils.DATE_TIME_PATTERN
 	 */
 	public static Date stringToDate(String strDate, String pattern) {
-		if (strDate != null) {
+		if (strDate == null) {
 			return null;
 		}
 

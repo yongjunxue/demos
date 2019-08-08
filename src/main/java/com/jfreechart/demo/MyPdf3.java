@@ -1,6 +1,7 @@
 package com.jfreechart.demo;
 
 import java.io.File;
+import java.io.FileDescriptor;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,9 +33,11 @@ import com.itextpdf.text.pdf.events.IndexEvents.Entry;
 public class MyPdf3 {
 	public static void test(Map<String, Object> param,String fileDir, String fileName) throws Exception {
 		createDir(fileDir);//创建临时目录
-		try {
+		try {			
+					System.setProperty("sun.jnu.encoding","utf-8");
 			             /** 实例化文档对象 */
 			             Document document = new Document(PageSize.A4, 100, 100, 100, 100);
+//			             document.add(n);
 			             /** 创建 PdfWriter 对象 */
 			             PdfWriter pw = PdfWriter.getInstance(document,// 文档对象的引用
 			                     new FileOutputStream(fileDir+fileName));//文件的输出路径+文件的实际名称
@@ -925,6 +928,7 @@ public class MyPdf3 {
 		return m;
 	}
 	public static void main(String[] args) throws Exception {
-		test(getData(),"F://export/","test.pdf");
+//		test(getData(),"F://export/","test.pdf");
+		test(getData(),"/data/360server","test.pdf");
 	}
 }
