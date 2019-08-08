@@ -10,8 +10,8 @@ import net.sf.cglib.proxy.MethodProxy;
 
 public class MyEnhancer {
 	public static void main(String[] args) {
-//		new MyEnhancer().testSon1();
-		new MyEnhancer().testSon2();
+		new MyEnhancer().testSon1();
+//		new MyEnhancer().testSon2();
 	}
 	
 	/**
@@ -24,10 +24,11 @@ public class MyEnhancer {
 			@Override
 			public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
 				System.out.println("aa");
-				Object o = proxy.invokeSuper(obj, args);
+//				Object o = proxy.invoke(obj, args);
+//				Object o = proxy.invokeSuper(obj, args);
 //				Object o = method.invoke(proxy, args);
 				System.out.println("bb");
-				return o;
+				return "cc";
 			}
 		});
 		Son1 s = (Son1) en.create();
