@@ -15,7 +15,7 @@ public class MyEnhancer {
 	}
 	
 	/**
-	 * 异常了            TODO
+	 * 当父类是接口时，不能进行调用
 	 */
 	void testSon1() {
 		Enhancer en = new Enhancer();
