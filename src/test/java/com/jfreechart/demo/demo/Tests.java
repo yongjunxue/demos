@@ -9,8 +9,6 @@ public class DemoApplicationTests {
 
 	public void contextLoads() {
 		//1
-		//2
-		//3
 	}
 
 }
